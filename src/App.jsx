@@ -1,23 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Layout from './components/layout';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        
-      <h1 className="bg-black">Vite + React</h1>
-      
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const App = () => {
+ return (
+<Router>
+  <Routes>
+  <Route path="/login" element={<Login/>} />
+  <Route path="/register" element={<Register/>} />
+  <Route path="*" element={
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Dashboard/>} />
+      </Routes>
+    </Layout>
+  } />
+  </Routes>
+</Router>
+ )
 }
-
-export default App
+export default App;
