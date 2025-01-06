@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthService from '../services/auth.service';
 import BronzeBtn from '../components/common/BronzeBtn';
@@ -9,9 +9,19 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const checkSession = async () => {
+            try {
+                const response = await AuthService.session();
+                    navigate('/');
+            } catch (err) {
+                // Session is not valid or an error occurred
+            }
+        };
+        checkSession();
+    }, [navigate]);
+
     const handleLogin = async () => {
-        console.log('login');
-        console.log(email, password);
         try {
             await AuthService.login(email, password);
             navigate('/');
@@ -82,7 +92,7 @@ const Login = () => {
                     {error && <div className="text-red-500">{error}</div>}
                     <div className="flex justify-center">
                         <div onClick={handleLogin}>
-                        <BronzeBtn text="Login" />
+                            <BronzeBtn text="Login" />
                         </div>
                     </div>
                 </div>
