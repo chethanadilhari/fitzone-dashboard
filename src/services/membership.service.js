@@ -19,7 +19,7 @@ class MembershipService {
     }
 
     async cancelMembership() {
-        const response = await axios.get(`${API_URL}cancel`);
+        const response = await axios.post(`${API_URL}cancel`);
         return response.data;
     }
 }
