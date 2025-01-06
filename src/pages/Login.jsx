@@ -13,7 +13,9 @@ const Login = () => {
         const checkSession = async () => {
             try {
                 const response = await AuthService.session();
+                if (response.status != 401){
                     navigate('/');
+                }
             } catch (err) {
                 // Session is not valid or an error occurred
             }

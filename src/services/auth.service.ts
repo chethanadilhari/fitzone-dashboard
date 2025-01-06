@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/auth/';
+const API_URL = '/api/auth/';
 
 class AuthService {
     async login(email: string, password: string) {
@@ -16,6 +16,7 @@ class AuthService {
 
     async session() {
         const session = await axios.get(API_URL + 'session');
+        return session.data;
     }
 
     async logout() {
