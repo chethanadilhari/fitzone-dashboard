@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_URL = '/api/auth/';
 
 class AuthService {
-    async login(email: string, password: string) {
+    async login(email, password) {
         const response = await axios.post(API_URL + 'login', {
             email,
             password
