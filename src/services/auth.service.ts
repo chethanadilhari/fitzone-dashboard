@@ -25,11 +25,14 @@ class AuthService {
         return response.data;
     }
 
-    async register(name: string, email: string, password: string) {
+    async register(formData) {
         const response = await axios.post(API_URL + 'register', {
-            name,
-            email,
-            password
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            password: formData.password,
+            gender: formData.gender,
+            phone: formData.mobileNumber
         });
         return response.data;
     }
