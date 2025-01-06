@@ -1,16 +1,34 @@
-import React from 'react'
-import BronzeBtn from '../../components/common/BronzeBtn'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import AuthService from '../services/auth.service';
+import BronzeBtn from '../components/common/BronzeBtn';
 
-const index = () => {
+const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = async () => {
+        console.log('login');
+        console.log(email, password);
+        try {
+            await AuthService.login(email, password);
+            navigate('/');
+        } catch (err) {
+            setError('Login failed. Please check your credentials and try again.');
+        }
+    };
+
     return (
-        <section className=" bg-cover bg-center bg-no-repeat"
+        <section className="bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/images/login-bg.jpg')" }}
         >
-            <div className="w-full max-w-screen-xl h-screen px-5 md:px-20 py-5 flex justify-end">
+            <div className="w-full h-screen px-5 md:px-20 py-5 flex justify-end">
                 <div className="grid max-w-1/2 items-center justify-around">
                     <div className="grid opacity-80 gap-3 text-white">
                         <div>
-                            <img src="/images/logo.png" alt="logo" className=" w-8  mx-auto" />
+                            <img src="/images/logo.png" alt="logo" className="w-8 mx-auto" />
                         </div>
                         <div>
                             <img src="/images/text-logo.png" alt="logo" className="w-28 mx-auto" />
@@ -28,7 +46,9 @@ const index = () => {
                                 type="email"
                                 name="email"
                                 placeholder="Enter your email"
-                                className="block w-full p-2 border-b border-bronze bg-transparent "
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="block w-full p-2 border-b border-bronze bg-transparent"
                             />
                         </div>
 
@@ -37,6 +57,8 @@ const index = () => {
                                 type="password"
                                 name="password"
                                 placeholder="Enter your password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 className="block w-full p-2 border-b border-bronze bg-transparent"
                             />
                         </div>
@@ -57,13 +79,16 @@ const index = () => {
                             <p>Forgot Password?</p>
                         </div>
                     </div>
+                    {error && <div className="text-red-500">{error}</div>}
                     <div className="flex justify-center">
-                        <BronzeBtn to="#aboutUs" text="Login" classname="" />
+                        <div onClick={handleLogin}>
+                        <BronzeBtn text="Login" />
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default index
+export default Login;
