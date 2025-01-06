@@ -8,7 +8,7 @@ const Layout = ({children}) => {
             <SideBar />
             <div className="ml-64 h-full">
                 <NavBar />
-                <div className="pt-16 h-full " style={{ backgroundImage: "url('/images/dashboard-bg.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                <div className="pt-16 min-h-full" style={{ backgroundImage: "url('/images/dashboard-bg.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
                     {children}
                 </div>
             </div>

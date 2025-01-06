@@ -5,6 +5,9 @@ import Layout from './components/layout';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Overview from './pages/Overview';
 import Membership from './pages/Membership';
+import Support from './pages/Support';
+import Classes from './pages/Classes';
+import Settings from './pages/Settings';
 
 const App = () => {
  return (
@@ -17,9 +20,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Overview/>} />
         <Route path="/membership" element={<Membership/>} />
-        <Route path="/" element={<Overview/>} />
-        <Route path="/" element={<Overview/>} />
-        <Route path="/" element={<Overview/>} />
+        <Route path="/support" element={<Support/>} />
+        <Route path="/classes" element={<Classes/>} />
+        <Route path="/settings" element={<Settings/>} />
         <Route path="/" element={<Overview/>} />
 
       </Routes>

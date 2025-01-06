@@ -12,7 +12,7 @@ const SideBar = () => {
     };
 
     return (
-        <div className="bg-darkBrown text-white max-w-screen-xl w-64 px-2 fixed h-full">
+        <div className="bg-black text-white max-w-screen-xl w-64 px-2 fixed h-full">
             <div>
                 <div className="flex items-center justify-center gap-2 pt-5 pb-3">
                     <div>

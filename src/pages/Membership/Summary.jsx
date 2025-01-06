@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import BronzeBtn from '../../components/common/BronzeBtn';
 import MembershipService from '../../services/membership.service';
 
-const Summary = () => {
+const Summary = ({setUserPackageId}) => {
     const [membership, setMembership] = useState(null);
     const [remainingDays, setRemainingDays] = useState(0);
 
     useEffect(() => {
         if (membership) {
+            setUserPackageId(membership.package.id);
             const days = calculateRemainingDays(membership.created_at);
             setRemainingDays(days);
         }
@@ -54,8 +55,8 @@ const Summary = () => {
     return (
         <section>
             <div>
-                <div className="border-2 max-w-xl py-5 font-sairaCondensed tracking-widest text-white text-xs px-5 border-bronze w-full mx-auto bg-darkBrown/90">
-                    <h2 className="text-bronze font-koulen text-center py-2 text-2xl ">Membership Summary</h2>
+                <div className="border-2 h-auto font-sairaCondensed tracking-widest text-white px-10 py-6 border-bronze w-full mx-auto bg-darkBrown/90">
+                    <h2 className="text-bronze font-koulen text-center py-2 text-3xl">Membership Summary</h2>
 
                     <div className="flex flex-col gap-5 font-bold py-3 ">
                         <div className="flex justify-between">
@@ -64,7 +65,7 @@ const Summary = () => {
                             </span>
 
                             <span className="">
-                                Status : <span className="text-bronze border border-bronze text-md bg-customDarkGrey ml-2 px-10 py-1"> {membership.status}</span>
+                                Status : <span className="text-bronze border border-bronze text- bg-customDarkGrey ml-2 px-10 py-1"> {membership.status}</span>
                             </span>
                         </div>
                         <span className="">

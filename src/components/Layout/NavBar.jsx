@@ -27,7 +27,7 @@ const NavBar = () => {
     }, []);
 
     return (
-        <div className="bg-black text-white py-2 border-b fixed border-customGrey w-[calc(100%-256px)] z-10">
+        <div className="bg-black text-white py-2 fixed w-[calc(100%-256px)] z-10">
             <div className="flex justify-between items-center px-5">
                 <div className="relative w-full max-w-xl">
                     <input type="text" placeholder="Search here..." className="bg-transparent border rounded-md font-sairaCondensed text-sm tracking-widest w-full border-bronze p-2 pl-5 pr-10" />
