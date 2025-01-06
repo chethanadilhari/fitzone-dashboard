@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import MenuItem from '../common/MenuItem';
 import AuthService from '../../services/auth.service';
 
@@ -25,14 +25,14 @@ const SideBar = () => {
             </div>
 
             <div className="w-full max-w-screen-xl mx-auto grid gap-2 justify-between py-4">
-                <div><MenuItem icon={"/images/overview-icon.png"} name={"Overview"} /></div>
-                <div><MenuItem icon={"/images/membership-icon.png"} name={"Membership"} /></div>
-                <div><MenuItem icon={"/images/classes-icon.png"} name={"Classes"} /></div>
-                <div><MenuItem icon={"/images/trainers-icon.png"} name={"Trainers"} /></div>
-                <div><MenuItem icon={"/images/support-icon.png"} name={"Support"} /></div>
-                <div><MenuItem icon={"/images/payments-icon.png"} name={"Payments & Billings"} /></div>
-                <div><MenuItem icon={"/images/resources-icon.png"} name={"Blog & Resources"} /></div>
-                <div><MenuItem icon={"/images/settings-icon.png"} name={"Account Settings"} /></div>
+                <Link to="/"><MenuItem icon={"/images/overview-icon.png"} name={"Overview"} /></Link>
+                <Link to="/membership"><MenuItem icon={"/images/membership-icon.png"} name={"Membership"} /></Link>
+                <Link to="/classes"><MenuItem icon={"/images/classes-icon.png"} name={"Classes"} /></Link>
+                <Link to="/trainers"><MenuItem icon={"/images/trainers-icon.png"} name={"Trainers"} /></Link>
+                <Link to="/support"><MenuItem icon={"/images/support-icon.png"} name={"Support"} /></Link>
+                <Link to="/billing"><MenuItem icon={"/images/payments-icon.png"} name={"Payments & Billings"} /></Link>
+                <Link to="/blog"><MenuItem icon={"/images/resources-icon.png"} name={"Blog & Resources"} /></Link>
+                <Link to="/settings"><MenuItem icon={"/images/settings-icon.png"} name={"Account Settings"} /></Link>
                 <div onClick={handleLogout}><MenuItem icon={"/images/logout-icon.png"} name={"Logout"} /></div>
             </div>
         </div>
