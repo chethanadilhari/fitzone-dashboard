@@ -8,6 +8,8 @@ import Membership from './pages/Membership';
 import Support from './pages/Support';
 import Classes from './pages/Classes';
 import Settings from './pages/Settings';
+import Trainers from './pages/Trainers';
+import Billing from './pages/Billing';
 
 const App = () => {
  return (
@@ -23,7 +25,9 @@ const App = () => {
         <Route path="/support" element={<Support/>} />
         <Route path="/classes" element={<Classes/>} />
         <Route path="/settings" element={<Settings/>} />
-        <Route path="/" element={<Overview/>} />
+        <Route path="/trainers" element={<Trainers/>} />
+        <Route path="/billing" element={<Billing/>} />
+
 
       </Routes>
     </Layout>

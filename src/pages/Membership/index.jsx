@@ -7,10 +7,9 @@ const index = () => {
 const [userPackageId, setUserPackageId] = useState('');
   return (
     <div>
-    <div className="grid grid-cols-2 py-10 px-20 justify between
-     gap-20">
+    <div className="">
     <Summary setUserPackageId={setUserPackageId} />
-    <Benefits packageId={userPackageId}/>
+    {/* <Benefits packageId={userPackageId}/> */}
     </div>
 
     <div>

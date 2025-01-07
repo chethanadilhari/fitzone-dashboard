@@ -53,33 +53,33 @@ const Summary = ({setUserPackageId}) => {
     }
 
     return (
-        <section>
-            <div>
-                <div className="border-2 h-auto font-sairaCondensed tracking-widest text-white px-10 py-6 border-bronze w-full mx-auto bg-darkBrown/90">
-                    <h2 className="text-bronze font-koulen text-center py-2 text-3xl">Membership Summary</h2>
+        <section className="px-4 sm:px-6 py-10 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+                <div className="border-2 h-auto font-sairaCondensed tracking-widest text-white px-4 py-6 sm:px-10 sm:py-8 border-bronze w-full bg-black/90">
+                    <h2 className="text-bronze font-koulen text-center pt-5 pb-10 text-4xl ">Membership Summary</h2>
 
-                    <div className="flex flex-col gap-5 font-bold py-3 ">
-                        <div className="flex justify-between">
-                            <span className="">
-                                Current Membership Plan : <span className="text-bronze"> {membership.package.name}</span>
+                    <div className="flex flex-col gap-3 sm:gap-5 font-bold py-3">
+                        <div className="flex flex-col sm:flex-row justify-between">
+                            <span>
+                                Current Membership Plan : <span className="text-bronze">{membership.package.name}</span>
                             </span>
 
-                            <span className="">
-                                Status : <span className="text-bronze border border-bronze text- bg-customDarkGrey ml-2 px-10 py-1"> {membership.status}</span>
+                            <span className="mt-2 sm:mt-0">
+                                Status : <span className="text-bronze border border-bronze bg-customDarkGrey ml-2 px-4 py-1 sm:px-10">{membership.status}</span>
                             </span>
                         </div>
-                        <span className="">
+                        <span>
                             Start Date : <span className="text-bronze">{new Date(membership.created_at).toLocaleDateString('en-GB')}</span>
                         </span>
-                        <span className="">
+                        <span>
                             End Date : <span className="text-bronze">{new Date(new Date(membership.created_at).setDate(new Date(membership.created_at).getDate() + 30)).toLocaleDateString('en-GB')}</span>
                         </span>
-                        <span className="">
-                            Remaining Days : <span className="text-bronze"> {remainingDays} Days</span>
+                        <span>
+                            Remaining Days : <span className="text-bronze">{remainingDays} Days</span>
                         </span>
                     </div>
                     
-                    <div className="flex gap-5 py-10 justify-between">
+                    <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-5 py-6 sm:py-10 ">
                         <BronzeBtn text="Renew Membership" disabled={remainingDays > 0} />
                         <div onClick={cancelMembership}><BronzeBtn text="Cancel" /></div>
                     </div>

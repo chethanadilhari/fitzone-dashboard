@@ -14,9 +14,9 @@ const Support = () => {
 
     return (
         <section>
-            <div>
-                <div className="border-2 lg:my-10  max-w-xl h-auto font-sairaCondensed tracking-widest text-white text-sm px-5 py-5  md:py-10 border-bronze mx-auto bg-darkBrown/90">
-                    <form></form>
+            <div className="px-20 bg-gradient-to-b py-20 from-black to-transparent">
+                <div className="border-2  max-w-xl h-auto font-sairaCondensed tracking-widest text-white text-sm px-5 py-5  md:py-10 border-bronze mx-auto bg-black/80">
+                    
                     <h2 className="text-bronze font-koulen text-center py-2 text-2xl">Support Center</h2>
                     <p>We're here to help! Submit your query, and our team will get back to you shortly.</p>
                     <form className="flex flex-col gap-5 py-10 px-5 font-sairaCondensed text-customGrey tracking-widest text-lg">
