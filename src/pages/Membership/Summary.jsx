@@ -3,7 +3,7 @@ import BronzeBtn from '../../components/common/BronzeBtn';
 import MembershipService from '../../services/membership.service';
 import { useNavigate } from 'react-router-dom';
 
-const Summary = ({setUserPackageId}) => {
+const Summary = () => {
     const [membership, setMembership] = useState(null);
     const [remainingDays, setRemainingDays] = useState(0);
 
@@ -11,7 +11,6 @@ const Summary = ({setUserPackageId}) => {
 
     useEffect(() => {
         if (membership) {
-            setUserPackageId(membership.package.id);
             const days = calculateRemainingDays(membership.created_at);
             setRemainingDays(days);
         }

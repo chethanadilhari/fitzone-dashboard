@@ -1,5 +1,5 @@
 import React from 'react'
-import Plans from './Plans'
+
 import History from './History'
 
 const index = () => {

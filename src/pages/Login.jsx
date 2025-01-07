@@ -97,6 +97,10 @@ const Login = () => {
                             <BronzeBtn text="Login" />
                         </div>
                     </div>
+
+                    <div className="text-customGrey text-center font-sairaCondensed text-base tracking-widest">
+                        Don't Have an Account? <a href="/register" className="text-bronze font-bold">Register Now</a>
+                    </div>
                 </div>
             </div>
         </section>
