@@ -1,7 +1,10 @@
 import React from 'react'
 import PlanContainer from '../../components/common/PlanContainer'   
 
+
 const Plans = () => {
+   
+
     const PricingDetails = [
         {
             name:"Basic",
@@ -49,13 +52,14 @@ const Plans = () => {
 
 
     return (
-        <section className="bg-black">
-            <div className="w-full max-w-screen-xl mx-auto h-auto px-5 md:px-20 py-7 md:py-10">
+        <section className="">
+<div className="px-40 py-20 pb-40 bg-gradient-to-b from-black to-transparent">
+            <div className="w-full border border-bronze bg-black/50 max-w-screen-xl mx-auto h-auto px-5 md:px-20 py-7 md:py-10">
                 <div className="uppercase text-bronze font-bold flex-col py-30 px-5 md:px-20">
                     <div className="flex gap-4">
                         
                     </div>
-                    <h2 className="text-2xl tracking-[0.05em] font-sairaCondensed">
+                    <h2 className=" text-4xl text-bronze tracking-[0.05em] font-sairaCondensed">
                         Membership Plans
                     </h2>
                 </div>
@@ -66,6 +70,7 @@ const Plans = () => {
                         <PlanContainer data={PricingDetails[1]} />
                         <PlanContainer data={PricingDetails[2]} />
                     </div>
+                </div>
                 </div>
             </div>
         </section>

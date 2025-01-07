@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 
 
-const PlanContainer = (data, className = "") => {
+const PlanContainer = ({data, className = ""}) => {
   return (
     <div className="flex justify-center text-center ">
             <div
@@ -42,7 +42,7 @@ const PlanContainer = (data, className = "") => {
                     <button
                         className="group-hover:border-bronze mb-5 group-hover:bg-bronze shadow-none hover:shadow-[0_0_0_2px_white] transition-shadow font-koulen text-lg tracking-[0.2em] uppercase border-2 border-customGrey bg-transparent text-white px-5 py-2  "
                     >
-                        Join Now
+                        Upgrade now
                     </button>
                 </div>
             </div>

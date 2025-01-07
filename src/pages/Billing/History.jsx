@@ -6,7 +6,7 @@ import { faEye } from '@fortawesome/free-solid-svg-icons'
 const History = () => {
 return (
     <section className="">
-        <div className="px-40 py-20 pb-40 bg-gradient-to-b from-black to-transparent">
+        <div className="pt-5 pb-20">
             <div className=" bg-darkBrown/70  font-sairaCondensed tracking-widest text-customGrey py-10 px-10 border border-bronze container mx-auto">
                 <h1 className="text-3xl uppercase font-bold mb-4">Billing History</h1>
                 <div className="w-1/2 flex  mb-4">
