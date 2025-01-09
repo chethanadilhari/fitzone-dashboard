@@ -13,7 +13,9 @@ const Login = () => {
         const checkSession = async () => {
             try {
                 const response = await AuthService.session();
-                if (response.status != 401){
+                console.log(response);
+                if(response.status == 200) {
+                    localStorage.setItem('user', JSON.stringify(response.data));
                     navigate('/');
                 }
             } catch (err) {

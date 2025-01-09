@@ -16,7 +16,7 @@ class AuthService {
 
     async session() {
         const session = await axios.get(API_URL + 'session');
-        return session.data;
+        return session;
     }
 
     async logout() {
