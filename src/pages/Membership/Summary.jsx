@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import BronzeBtn from '../../components/common/BronzeBtn';
 import MembershipService from '../../services/membership.service';
-import { useNavigate } from 'react-router-dom';
 
 const Summary = () => {
     const [membership, setMembership] = useState(null);
     const [remainingDays, setRemainingDays] = useState(0);
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (membership) {
@@ -22,7 +19,6 @@ const Summary = () => {
                 const data = await MembershipService.getCurrentMembership();
                 setMembership(data);
             } catch (error) {
-                navigate('/login');
                 console.error('Error fetching membership data:', error);
             }
         };

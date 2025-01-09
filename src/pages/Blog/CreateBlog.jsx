@@ -25,6 +25,10 @@ const CreateBlog = () => {
             alert('Blog created successfully');
             navigate('/blog');
         } catch (error) {
+            if(error.response.status === 403) {
+                alert('You are not authorized to create a blog');
+                return;
+            }
             console.error('Error creating blog:', error);
             alert('Failed to create blog');
         }

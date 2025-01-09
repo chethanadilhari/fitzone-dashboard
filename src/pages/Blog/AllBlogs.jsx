@@ -27,6 +27,10 @@ const AllBlogs = () => {
                 await blogService.deleteBlog(blogId);
                 setBlogs(blogs.filter(blog => blog.id !== blogId));
             } catch (error) {
+                if (error.response.status === 403) {
+                    alert('You are not authorized to delete blogs');
+                    return;
+                }
                 console.error('Error deleting blog:', error);
             }
         }
@@ -60,9 +64,11 @@ const AllBlogs = () => {
                         </select>
                     </div>
                     <div className="py-5 text-right">
+                        <Link to='/blog/create'>
                         <button className="text-white font-bold tracking-widest bg-bronze py-2 px-6 rounded">
                             Add New Post
                         </button>
+                        </Link>
                     </div>
                     <table className="min-w-full text-left bg-black text-white">
                         <thead>

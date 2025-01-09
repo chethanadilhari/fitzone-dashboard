@@ -16,6 +16,8 @@ import AllBlogs from './pages/Blog/AllBlogs';
 import CreateBlog from './pages/Blog/CreateBlog';
 import UpdateBlog from './pages/Blog/UpdateBlog';
 
+import StaffOverview from './pages/Staff/Overview';
+
 const App = () => {
  return (
 <Router>
@@ -27,9 +29,6 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Overview/>} />
         <Route path="/membership" element={<Membership/>} />
-        <Route path="/blog" element={<AllBlogs/>} />
-        <Route path="/blog/new" element={<CreateBlog/>} />
-        <Route path="/blog/:id" element={<UpdateBlog/>} />
         <Route path="/support" element={<AllTickets/>} />
         <Route path="/support/ticket/:id" element={<SingleTicket/>} />
         <Route path="/support/form" element={<TicketForm/>} />
@@ -37,6 +36,12 @@ const App = () => {
         <Route path="/settings" element={<Settings/>} />
         <Route path="/trainers" element={<Trainers/>} />
         <Route path="/billing" element={<Billing/>} />
+
+        {/* Staff only Routes */}
+        <Route path="/staff" element={<StaffOverview/>} />
+        <Route path="/blog" element={<AllBlogs/>} />
+        <Route path="/blog/new" element={<CreateBlog/>} />
+        <Route path="/blog/:id" element={<UpdateBlog/>} />
       </Routes>
     </Layout>
   } />

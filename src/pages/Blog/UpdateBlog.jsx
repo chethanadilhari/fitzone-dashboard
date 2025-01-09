@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BlogService from '../../services/blog.service';
 import { useParams, useNavigate } from 'react-router-dom';
-import { use } from 'react';
 
 const UpdateBlog = () => {
     const { id } = useParams();
@@ -116,7 +115,6 @@ const UpdateBlog = () => {
                                 className="bg-bronze text-white px-4 py-2 rounded"
                                 onClick={() => {
                                     setTitle('');
-                                    setAuthor('');
                                     setFeaturedImage('');
                                     setDescription('');
                                     setContent('');

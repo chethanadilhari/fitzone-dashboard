@@ -68,6 +68,9 @@ const AllTickets = () => {
                                 <button className="text-white font-bold tracking-widest bg-bronze py-2 px-6 rounded">
                                     Reset Filters
                                 </button>
+                                <button className="text-white font-bold tracking-widest bg-bronze py-2 px-6 rounded">
+                                    New Ticket
+                                </button>
 
                             </div>
                         </div>
