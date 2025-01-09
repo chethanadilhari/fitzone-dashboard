@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Support = () => {
+const TicketForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
 
@@ -54,4 +54,4 @@ const Support = () => {
     );
 };
 
-export default Support;
+export default TicketForm;
