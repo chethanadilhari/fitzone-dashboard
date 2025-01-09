@@ -6,10 +6,11 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000', // Your NestJS backend
+        target: 'http://localhost:3000', // NestJS backend
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''), // Optional, if your backend doesn't use `/api` prefix
+        rewrite: (path) => path.replace(/^\/api/, ''), // replace /api with '' when sending requests to the backend
       },
     },
   },
 });
+

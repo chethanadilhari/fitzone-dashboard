@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const AllBlogs = () => {
     const [blogs, setBlogs] = useState([]);
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -19,6 +20,15 @@ const AllBlogs = () => {
 
         fetchBlogs();
     }, []);
+
+    const handleSearch = async () => {
+        try {
+            const response = await blogService.getBlogs(search);
+            setBlogs(response);
+        } catch (error) {
+            console.error('Error searching blogs:', error);
+        }
+    }
 
     const handleDelete = async (blogId) => {
         const confirmed = window.confirm('Are you sure you want to delete this blog post?');
@@ -52,8 +62,10 @@ const AllBlogs = () => {
                             type="text"
                             placeholder="Search by Title or Author..."
                             className="border border-bronze w-1/2 bg-customDarkGrey p-2 mr-2 rounded"
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
                         />
-                        <button className="text-white font-bold tracking-widest bg-bronze py-2 px-6 mr-2 rounded">Search</button>
+                        <button onClick={handleSearch} className="text-white font-bold tracking-widest bg-bronze py-2 px-6 mr-2 rounded">Search</button>
                     </div>
                     <div className="items-center py-5 gap-5 flex">
                         <label className="font-bold text-lg">Filter by Status:</label>
@@ -64,7 +76,7 @@ const AllBlogs = () => {
                         </select>
                     </div>
                     <div className="py-5 text-right">
-                        <Link to='/blog/create'>
+                        <Link to='/blog/new'>
                         <button className="text-white font-bold tracking-widest bg-bronze py-2 px-6 rounded">
                             Add New Post
                         </button>

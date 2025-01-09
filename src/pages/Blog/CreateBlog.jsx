@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BlogService from '../../services/blog.service';
 import { useNavigate } from 'react-router-dom';
+import { Editor } from "@tinymce/tinymce-react";
 
 const CreateBlog = () => {
     const [title, setTitle] = useState('');
@@ -10,6 +11,11 @@ const CreateBlog = () => {
     const [status, setStatus] = useState('DRAFT');
 
     const navigate = useNavigate();
+
+    const handleEditorChange = (content, editor) => {
+        setContent(content);
+        console.log("Content was updated:", content);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,7 +31,7 @@ const CreateBlog = () => {
             alert('Blog created successfully');
             navigate('/blog');
         } catch (error) {
-            if(error.response.status === 403) {
+            if (error.response.status === 403) {
                 alert('You are not authorized to create a blog');
                 return;
             }
@@ -38,11 +44,11 @@ const CreateBlog = () => {
         <section className="py-10">
             <div className="container mx-auto px-4">
                 <div className="bg-black/90 p-10 font-sairaCondensed border text-lg tracking-widest text-white border-bronze shadow-lg">
-                    <h1 className="text-3xl text-bronze uppercase font-bold mb-6">Add / Edit Blog Post</h1>
+                    <h1 className="text-3xl text-bronze uppercase font-bold mb-6">Add New Blog Post</h1>
                     <form onSubmit={handleSubmit}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label className="block text-white mb-2">Title</label>
+                                <label className="block text-white mb-2">Title:</label>
                                 <input
                                     type="text"
                                     className="w-full bg-customDarkGrey border border-bronze p-3 rounded"
@@ -53,7 +59,7 @@ const CreateBlog = () => {
                         </div>
 
                         <div className="mt-6">
-                            <label className="block text-white mb-2">Feature Image</label>
+                            <label className="block text-white mb-2">Feature Image:</label>
                             <input
                                 type="text"
                                 className="w-full bg-customDarkGrey border border-bronze p-3 rounded"
@@ -62,8 +68,8 @@ const CreateBlog = () => {
                             />
                         </div>
 
-                        <div className="mt-6">
-                            <label className="block text-white mb-2">Description</label>
+                        <div className="my-6">
+                            <label className="block text-white mb-2">Description:</label>
                             <textarea
                                 className="w-full bg-customDarkGrey border border-bronze p-3 rounded"
                                 rows="4"
@@ -72,13 +78,33 @@ const CreateBlog = () => {
                             ></textarea>
                         </div>
                         <div className="mt-6">
-                            <label className="block text-white mb-2">Content</label>
-                            <textarea
-                                className="w-full bg-customDarkGrey border border-bronze p-3 rounded"
-                                rows="10"
-                                value={content}
-                                onChange={(e) => setContent(e.target.value)}
-                            ></textarea>
+                            <label className="block text-white mb-2">Content:</label>
+
+                            <Editor
+                                tinymceScriptSrc="/tinymce/tinymce.min.js"
+                                init={{
+                                    height: 400,
+                                    menubar: true,
+                                    plugins: [
+                                        "advlist autolink lists link image charmap print preview anchor",
+                                        "searchreplace visualblocks code fullscreen",
+                                        "insertdatetime media table paste code help wordcount",
+                                    ],
+                                    toolbar:
+                                        "undo redo | formatselect | bold italic backcolor | \
+            alignleft aligncenter alignright alignjustify | \
+            bullist numlist outdent indent | link | removeformat | help",
+                                    skin: "oxide-dark", // Set to the dark theme
+                                    content_css: "dark", // Use the dark content styles
+                                }}
+                                onEditorChange={handleEditorChange}
+                            />
+                            <div className="my-10">
+                                <label className="block text-white mb-2">Editor Output:</label>
+                                <div className="w-full bg-customDarkGrey border  min-h-48 h-auto border-bronze p-3 rounded">
+                                    <div dangerouslySetInnerHTML={{ __html: content }} />
+                                </div>
+                            </div>
                         </div>
                         <div className="flex gap-4 mt-6">
                             <button
