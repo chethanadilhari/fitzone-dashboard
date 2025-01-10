@@ -16,7 +16,11 @@ const Login = () => {
                 console.log(response);
                 if(response.status == 200) {
                     localStorage.setItem('user', JSON.stringify(response.data));
+                    if((response.data.role === 'STAFF') || (response.data.role === 'ADMIN')) {
+                        navigate('/support');
+                    } else {
                     navigate('/');
+                    }  
                 }
             } catch (err) {
                 // Session is not valid or an error occurred
@@ -27,8 +31,12 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-            await AuthService.login(email, password);
+            const user = await AuthService.login(email, password);
+            if((user.role === 'STAFF') || (user.role === 'ADMIN')) {
+                navigate('/support');
+            } else {
             navigate('/');
+            } 
         } catch (err) {
             setError('Login failed. Please check your credentials and try again.');
         }

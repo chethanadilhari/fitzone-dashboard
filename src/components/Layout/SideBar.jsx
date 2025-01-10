@@ -1,10 +1,80 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, {useEffect, useState } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
 import MenuItem from '../common/MenuItem';
 import AuthService from '../../services/auth.service';
 
+const MemberMenu = [
+    {
+        name: 'Overview',
+        icon: '/images/overview-icon.png',
+        url: '/'
+    },
+    {
+        name: 'Membership',
+        icon: '/images/membership-icon.png',
+        url: '/membership'
+    },
+    {
+        name: 'Classes',
+        icon: '/images/classes-icon.png',
+        url: '/classes'
+    },
+    {
+        name: 'Trainers',
+        icon: '/images/trainers-icon.png',
+        url: '/trainers'
+    },
+    {
+        name: 'Support',
+        icon: '/images/support-icon.png',
+        url: '/support'
+    },
+    {
+        name: 'Payments & Billings',
+        icon: '/images/payments-icon.png',
+        url: '/billing'
+    },
+    {
+        name: 'Blog & Resources',
+        icon: '/images/resources-icon.png',
+        url: 'https://fitzone.lk/blog'
+    },
+    {
+        name: 'Account Settings',
+        icon: '/images/settings-icon.png',
+        url: '/settings'
+    }
+];
+
+const StaffMenu = [
+    {
+        name: 'Blog & Resources',
+        icon: '/images/resources-icon.png',
+        url: '/blog'
+    },
+    {
+        name: 'Support',
+        icon: '/images/support-icon.png',
+        url: '/support'
+    },
+    {
+        name: 'Account Settings',
+        icon: '/images/settings-icon.png',
+        url: '/settings'
+    }
+];
+
 const SideBar = () => {
+    const [user, setUser] = useState({});
+
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
 
     const handleLogout = async () => {
         await AuthService.logout();
@@ -25,14 +95,16 @@ const SideBar = () => {
             </div>
 
             <div className="w-full max-w-screen-xl mx-auto grid gap-2 justify-between py-4">
-                <Link to="/"><MenuItem icon={"/images/overview-icon.png"} name={"Overview"} /></Link>
-                <Link to="/membership"><MenuItem icon={"/images/membership-icon.png"} name={"Membership"} /></Link>
-                <Link to="/classes"><MenuItem icon={"/images/classes-icon.png"} name={"Classes"} /></Link>
-                <Link to="/trainers"><MenuItem icon={"/images/trainers-icon.png"} name={"Trainers"} /></Link>
-                <Link to="/support"><MenuItem icon={"/images/support-icon.png"} name={"Support"} /></Link>
-                <Link to="/billing"><MenuItem icon={"/images/payments-icon.png"} name={"Payments & Billings"} /></Link>
-                <Link to="/blog"><MenuItem icon={"/images/resources-icon.png"} name={"Blog & Resources"} /></Link>
-                <Link to="/settings"><MenuItem icon={"/images/settings-icon.png"} name={"Account Settings"} /></Link>
+                {user.role === "MEMBER" && MemberMenu.map((item, index) => (
+                    <Link to={item.url} key={index}>
+                        <MenuItem icon={item.icon} name={item.name} />
+                    </Link>
+                ))}
+                {((user.role === "STAFF") || user.role === "ADMIN") && StaffMenu.map((item, index) => (
+                    <Link to={item.url} key={index}>
+                        <MenuItem icon={item.icon} name={item.name} />
+                    </Link>
+                ))}
                 <div onClick={handleLogout}><MenuItem icon={"/images/logout-icon.png"} name={"Logout"} /></div>
             </div>
         </div>
