@@ -6,7 +6,7 @@ const API_URL = '/api/support';
 class SupportService {
     async createTicket(data) {
         const response = await axios.post(`${API_URL}/ticket`,data);
-        return response.data;
+        return response;
     }
 
     async getTickets() {

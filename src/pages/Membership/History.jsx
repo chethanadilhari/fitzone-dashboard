@@ -20,7 +20,7 @@ const History = () => {
                     <table className="min-w-full text-left  bg-black text-white">
                         <thead>
                             <tr>
-                                <th className="py-2 px-4 border-b border-bronze">Membership ID</th>
+                                <th className="py-2 px-4 border-b border-bronze">Membership Plan</th>
                                 <th className="py-2 px-4 border-b border-bronze">Start Date</th>
                                 <th className="py-2 px-4 border-b border-bronze">End Date</th>
                                 <th className="py-2 px-4 border-b border-bronze">Amount</th>
@@ -30,9 +30,9 @@ const History = () => {
                         </thead>
                         <tbody>
                             <tr className="bg-black items- hover:bg-customDarkGrey text-white">
-                                <td className="py-2 px-4 border-b border-bronze">INV-001</td>
+                                <td className="py-2 px-4 border-b border-bronze">Basic</td>
                                 <td className="py-2 px-4 border-b border-bronze">2023-01-01</td>
-                                <td className="py-2 px-4 border-b border-bronze">2023-12-31</td>
+                                <td className="py-2 px-4 border-b border-bronze">2023-01-31</td>
                                 <td className="py-2 px-4 border-b border-bronze">$100.00</td>
                                 <td className="py-2 px-4 border-b border-bronze">Paid</td>
                                 <td className="py-2 px-4 border-b border-bronze">
@@ -42,9 +42,9 @@ const History = () => {
                             </tr>
     
                             <tr className="bg-black items- hover:bg-customDarkGrey text-white">
-                                <td className="py-2 px-4 border-b border-bronze">INV-002</td>
-                                <td className="py-2 px-4 border-b border-bronze">2023-01-01</td>
-                                <td className="py-2 px-4 border-b border-bronze">2023-12-31</td>
+                                <td className="py-2 px-4 border-b border-bronze">Satndard</td>
+                                <td className="py-2 px-4 border-b border-bronze">2023-03-01</td>
+                                <td className="py-2 px-4 border-b border-bronze">2023-03-31</td>
                                 <td className="py-2 px-4 border-b border-bronze">$100.00</td>
                                 <td className="py-2 px-4 border-b border-bronze">Paid</td>
                                 <td className="py-2 px-4 border-b border-bronze">

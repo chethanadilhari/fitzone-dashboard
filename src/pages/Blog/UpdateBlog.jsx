@@ -116,7 +116,7 @@ const UpdateBlog = () => {
                             />
                             <div className="my-10">
                                 <label className="block text-white mb-2">Editor Output:</label>
-                                <div className="w-full bg-customDarkGrey border  h-96 border-bronze p-3 rounded">
+                                <div className="w-full bg-customDarkGrey border  min-h-48 h-auto border-bronze p-3 rounded">
                                     <div dangerouslySetInnerHTML={{ __html: content }} />
                                 </div>
                             </div>

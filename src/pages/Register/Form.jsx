@@ -114,7 +114,7 @@ const Form = () => {
                             <input
                                 type="tel"
                                 name="mobileNumber"
-                                placeholder="Enter your mobile number"
+                                placeholder="Ex: +9477678987"
                                 className="block w-full mt-1 p-2 border-2 border-bronze bg-transparent"
                                 value={formData.mobileNumber}
                                 onChange={handleChange}

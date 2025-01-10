@@ -52,15 +52,10 @@ const AllBlogs = () => {
                 <div className="bg-darkBrown/70 font-sairaCondensed tracking-widest text-customGrey py-10 px-10 border border-bronze container mx-auto">
                     <h1 className="text-3xl uppercase font-bold mb-4">All Blog posts</h1>
                     <div className="w-full items-center py-5 gap-5 flex ">
-                        <label className="font-bold text-lg">Search by:</label>
-                        <select className="bg-customDarkGrey border border-bronze text-white w-1/4 p-2 rounded mr-2">
-                            <option value="all">Select the type</option>
-                            <option value="title">Title</option>
-                            <option value="author">Author</option>
-                        </select>
+                        <label className="font-bold text-lg">Search:</label>
                         <input
                             type="text"
-                            placeholder="Search by Title or Author..."
+                            placeholder="Search by Title..."
                             className="border border-bronze w-1/2 bg-customDarkGrey p-2 mr-2 rounded"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
