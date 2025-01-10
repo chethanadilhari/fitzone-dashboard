@@ -1,9 +1,27 @@
 import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
+import membershipService from '../../services/membership.service';
+import { useNavigate } from 'react-router-dom';
 
 
 const PlanContainer = ({data, className = ""}) => {
+
+    const navigate = useNavigate();
+
+    const subscribeToMembership = async() => {
+        try {
+            const membership = await membershipService.subscribeToMembership({packageId: data.id});
+              console.log(membership);
+              alert('Membership Subscribed Successfully');
+              navigate('/');
+        } catch (error) {
+            console.error('Error subscribing to membership:', error);
+            alert('Failed to subscribe to membership');
+            
+        }
+    }
+
   return (
     <div className="flex justify-center text-center ">
             <div
@@ -40,9 +58,10 @@ const PlanContainer = ({data, className = ""}) => {
                 {/* Action Button */}
                 <div  className="">
                     <button
+                        onClick={subscribeToMembership}
                         className="group-hover:border-bronze mb-5 group-hover:bg-bronze shadow-none hover:shadow-[0_0_0_2px_white] transition-shadow font-koulen text-lg tracking-[0.2em] uppercase border-2 border-customGrey bg-transparent text-white px-5 py-2  "
                     >
-                        Upgrade now
+                        Subscribe now
                     </button>
                 </div>
             </div>

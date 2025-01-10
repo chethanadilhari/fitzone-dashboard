@@ -1,12 +1,12 @@
 import React from 'react'
 import PlanContainer from '../../components/common/PlanContainer'   
 
-
 const Plans = () => {
    
 
     const PricingDetails = [
         {
+            id:1,
             name:"Basic",
             description:"Best for:Beginners & Casual Fitness Enthusiasts",
             price:"29",
@@ -20,6 +20,7 @@ const Plans = () => {
         },
 
         {
+            id:2,
             name:"Standard",
             description:"Best For: Fitness Enthusiasts & Intermediate Lifters",
             price:"49 ",
@@ -35,6 +36,7 @@ const Plans = () => {
         },
 
         {
+            id:3,
             name:"Premium",
             description:"Best For: Advanced Athletes & Serious Lifters",
             price:"79",
@@ -66,9 +68,9 @@ const Plans = () => {
 
                 <div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-12 px-5 md:px-20 py-5">
-                        <PlanContainer data={PricingDetails[0]} />
-                        <PlanContainer data={PricingDetails[1]} />
-                        <PlanContainer data={PricingDetails[2]} />
+                        {PricingDetails.map((plan) => (
+                            <PlanContainer key={plan.id} data={plan} />
+                        ))}
                     </div>
                 </div>
                 </div>

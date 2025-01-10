@@ -37,7 +37,7 @@ const MemberMenu = [
     {
         name: 'Blog & Resources',
         icon: '/images/resources-icon.png',
-        url: 'https://fitzone.lk/blog'
+        url: 'http://localhost:5000/blog'
     },
     {
         name: 'Account Settings',
