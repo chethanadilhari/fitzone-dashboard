@@ -10,7 +10,7 @@ const YourTrainer = () => {
                         <h1 className="font-koulen text-bronze text-4xl">Your trainer details</h1>
 
                     </div>
-                    <div className="flex border border-customGrey bg-black/60 max-h-screen font-sairaCondensed tracking-widest text-lg text-customGrey items-center">
+                    <div className="flex border border-customGrey bg-black/60 font-sairaCondensed tracking-widest text-lg text-customGrey items-center">
                         <div className="w-1/2 px-4 py-2">
                             <img src="/images/trainer-1.jpg" alt="Trainer" className=" w-full h-auto rounded-lg shadow-lg" />
                         </div>

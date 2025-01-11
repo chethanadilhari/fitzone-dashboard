@@ -3,10 +3,8 @@ import SocialMediaLinks from './SocialMediaLinks'
 
 const TrainersContainer = ({data}) => {
   return (
-  
-        <section>
-            <div className="w-full text-white max-w-screen-xl  hover:border-bronze border  bg-black h-full mx-auto mb-5 px-5 xl:px-0">
-                <div className="grid items-centergap-5 justify-center">
+            <div className="flex flex-col items-stretch w-full text-white max-w-screen-xl  hover:border-bronze border  bg-black mx-auto px-5 xl:px-0">
+                <div className="flex flex-col items-stretch">
 
                     <img 
                         src={data.image}
@@ -34,8 +32,6 @@ const TrainersContainer = ({data}) => {
 
                 </div>
             </div>
-
-        </section>
     )
   
 }

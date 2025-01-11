@@ -107,6 +107,13 @@ const AllTickets = () => {
                                     </td>
                                 </tr>
                             ))}
+                        {tickets.length === 0 && (
+                            <tr>
+                                <td colSpan="7" className="text-center py-5">
+                                    No tickets found
+                                </td>
+                            </tr>
+                        )}
                         </tbody>
                     </table>
 

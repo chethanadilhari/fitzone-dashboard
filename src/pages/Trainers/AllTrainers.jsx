@@ -35,8 +35,8 @@ const trainers = [{
 
 const AllTrainers = () => {
     return (
-        <section >
-            <div className="pb-20">
+        <section>
+            <div>
 <div className="text-4xl font-sairaCondensed uppercase  text-center px-5 text-bronze font-bold ">All Trainers</div>
             <div className="w-full  text-white max-w-screen-xl py-5 h-auto mx-auto px-5 ">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
