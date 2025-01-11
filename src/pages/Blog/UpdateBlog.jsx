@@ -97,6 +97,7 @@ const UpdateBlog = () => {
 
                             <Editor
                                 tinymceScriptSrc="/tinymce/tinymce.min.js" 
+                                value={content}
                                 init={{
                                     height: 400,
                                     menubar: true,
